@@ -37,4 +37,5 @@ public class SumOfTwoInteger {
         System.out.println(sumOfTwoInteger.sumOfTwoIntegerIterative(1, 2));
         System.out.println(sumOfTwoInteger.sumOfTwoIntegerRecursive(1, 2));
     }
+
 }
