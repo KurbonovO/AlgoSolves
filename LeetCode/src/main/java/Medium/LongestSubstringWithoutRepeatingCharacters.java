@@ -4,7 +4,7 @@ package Medium;
 import java.util.HashSet;
 import java.util.Set;
 
-// Geico Sr Software Engineer
+// Geico Sr Software Engineer 5/22/23
 public class LongestSubstringWithoutRepeatingCharacters {
 
   public int BruteForce(String input) {
