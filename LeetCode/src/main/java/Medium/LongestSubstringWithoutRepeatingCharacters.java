@@ -1,7 +1,9 @@
 package Medium;
 
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 // Geico Sr Software Engineer 5/22/23
@@ -42,12 +44,12 @@ public class LongestSubstringWithoutRepeatingCharacters {
     int right = 0;
 
     int res = 0;
-    while (right < s.length()) {
-      char r = s.charAt(right);
+    while (right < input.length()) {
+      char r = input.charAt(right);
       chars.put(r, chars.getOrDefault(r,0) + 1);
 
       while (chars.get(r) > 1) {
-        char l = s.charAt(left);
+        char l = input.charAt(left);
         chars.put(l, chars.get(l) - 1);
         left++;
       }
@@ -57,6 +59,21 @@ public class LongestSubstringWithoutRepeatingCharacters {
       right++;
     }
     return res;
+  }
+
+  public int slidingWindowOptimized(String input) {
+
+    int result = 0;
+    Map<Character, Integer> map = new HashMap<>(); // current index of character
+    // try to extend the range [i, j]
+    for (int j = 0, i = 0; j < input.length(); j++) {
+      if (map.containsKey(input.charAt(j))) {
+        i = Math.max(map.get(input.charAt(j)), i);
+      }
+      result = Math.max(result, j - i + 1);
+      map.put(input.charAt(j), j + 1);
+    }
+    return result;
   }
 
 }
